@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yamada API Playground</title>
+  <link rel="stylesheet" href="/playground/assets/styles.css?v=20260526a" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="brand">
+        <h1><span>YAMADA</span><strong>API</strong></h1>
+        <p>Live Scrape Playground</p>
+      </div>
+      <div class="sidebar-section">
+        <label for="endpointSearch">Cari endpoint</label>
+        <input id="endpointSearch" type="text" placeholder="contoh: /anime/home" />
+      </div>
+      <div class="sidebar-section">
+        <div class="section-title">Endpoint Collection</div>
+        <div id="endpointList" class="endpoint-list"></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <section class="topbar">
+        <div class="topbar-title">
+          <h2>API Request Console</h2>
+          <p>Mode live scrape: request langsung ke endpoint asli</p>
+        </div>
+        <div class="topbar-hints">
+          <span class="hint">Enter: send</span>
+          <span class="hint">Ctrl/Cmd + Enter: quick send</span>
+        </div>
+      </section>
+
+      <section class="workspace">
+        <header class="panel request-panel">
+          <div class="panel-head">
+            <h2>Request Builder</h2>
+            <p>Tes endpoint scraper langsung dari browser</p>
+          </div>
+
+          <div class="request-line">
+            <select id="method">
+              <option value="GET">GET</option>
+              <option value="POST">POST</option>
+              <option value="PUT">PUT</option>
+              <option value="PATCH">PATCH</option>
+              <option value="DELETE">DELETE</option>
+            </select>
+            <input id="path" type="text" value="/anime/home" placeholder="/anime/home" />
+            <button id="sendBtn" type="button">Send</button>
+          </div>
+
+          <div class="request-grid">
+            <div>
+              <label for="apiKey">x-api-key (wajib)</label>
+              <input id="apiKey" type="text" placeholder="Masukkan API key" />
+            </div>
+            <div>
+              <label for="origin">Origin (opsional, cURL only)</label>
+              <input id="origin" type="text" placeholder="https://www.yamadaverse.xyz" />
+            </div>
+            <div>
+              <label for="userAgent">User-Agent (opsional, cURL only)</label>
+              <input id="userAgent" type="text" placeholder="YamadaPlayground/1.0" />
+            </div>
+          </div>
+
+          <div class="meta">
+            <div><b>Status:</b> <span id="status">-</span></div>
+            <div><b>Waktu:</b> <span id="time">-</span></div>
+            <div><b>Ukuran:</b> <span id="size">-</span></div>
+            <div><b>Request ID:</b> <span id="requestId">-</span></div>
+          </div>
+
+          <div class="toolbar">
+            <button id="copyCurl" type="button" class="ghost">Copy cURL</button>
+            <button id="clearResponse" type="button" class="ghost">Clear</button>
+          </div>
+        </header>
+
+        <section class="panel response-panel">
+          <div class="response-header">
+            <h2>Response Viewer</h2>
+            <span id="sourceInfo"></span>
+          </div>
+          <pre id="response">{}</pre>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <script src="/playground/assets/app.js?v=20260526a" defer></script>
+</body>
+</html>
